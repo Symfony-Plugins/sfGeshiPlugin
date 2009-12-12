@@ -32,7 +32,7 @@ pass it as the first parameter to sfGeshi class constructor. The second
 parameter is the language name. See the example below:
 
     [php]
-    $code_orig = "<?php echo \"hello GeSHi\"; ?>";
+    $code_orig = "<?php echo \\\"hello GeSHi\\\"; ?>";
     $geshi = new sfGeshi($code_orig, 'php');
     $code_high = $geshi->parse_code();
 
