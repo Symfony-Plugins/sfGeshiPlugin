@@ -1,24 +1,59 @@
-sfDoctrineGraphvizPlugin
+sfGeshiPlugin
 ========================
 
-Provides you with a task that output database MCD and MLD doctrine schema
-using the graphviz tool.
+Provides easy use of Generic Syntac Highlighter (GeSHi) in symfony projects.
+Current release of the plugin is based on version 1.0.8.5 of GeSHI.
+
+Installation
+============
+
+    $ ./symfony plugin:install sfGeshiPlugin
+
+The plugin is provided with an example module to test if everything works
+fine. Go to your application _config_ directory and add _sfGeshiExample_
+module to _enabled modules_ section in _settings.yml_ file. Next step is
+to edit _config/routing.yml_ file of the plugin - you shall uncomment all
+lines. Then clear the cache:
+
+    $ ./symfony cc
+
+and everything is ready to run:
+
+    http://local.site/geshi
+
+in your browser. You shall see a demonstration of highlighting PHP code of
+the actions.class.php file.
 
 Usage
------
+=====
 
-Simply type the following command:
+It's obvious - store all the code you want to highlight in one variable and
+pass it as the first parameter to sfGeshi class constructor. The second
+parameter is the language name. See the example below:
 
-    $ ./symfony doctrine:graphviz
+    [php]
+    $code_orig = "<?php echo \"hello GeSHi\"; ?>";
+    $geshi = new sfGeshi($code_orig, 'php');
+    $code_high = $geshi->parse_code();
 
-Files are created in the directory _doc/graph/doctrine_. There are 4 files created:
+sfGeshiExample
+--------------
 
-*   **mcd.schema.dot** : source of *"Modèle conceptuel des données"*
-*   **mcd.schema.png** : image of *"Modèle conceptuel des données"*
-*   **mld.schema.dot** : source of *"Modèle logique des données"*
-*   **mld.schema.png** : image of *"Modèle logique des données"*
+The plugin provides a GeSHi syntax highlighting example. The code is generated
+inside the action:
 
-Notes
------
+    [php]
+    $geshi = new sfGeshi(implode("", file(__FILE__)), 'php');
+    $this->code = $geshi->parse_code();
 
-You must have graphviz installed on your system.
+and displayed in the template:
+
+    [php]
+    <?php echo $code ?>
+
+As you can see, there's nothing difficult.
+
+Documentation
+=============
+
+See the [GeSHi documentation](http://qbnz.com/highlighter/geshi-doc.html).
