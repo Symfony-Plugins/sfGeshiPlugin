@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.4.1" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+ <name>sfGeshiPlugin</name>
+ <channel>plugins.symfony-project.org</channel>
+ <summary>sfGeshiPlugin provides easy use of the Generic Syntax Highlighter (GeSHi)</summary>
+ <description>sfGeshiPlugin provides easy use of the Generic Syntax Highlighter (GeSHi)</description>
+ <lead>
+  <name>Tomasz Ducin</name>
+  <user>tkoomzaaskz</user>
+  <email>tomasz.ducin@gmail.com</email>
+  <active>yes</active>
+ </lead>
+ <date>2009-12-12</date>
+ <time>11:00:00</time>
+ <version>
+   <release>1.0.0</release>
+   <api>1.2.0</api>
+ </version>
+ <stability>
+  <release>stable</release>
+  <api>stable</api>
+ </stability>
+ <license uri="http://www.gnu.org/licenses/lgpl.html">LGPL</license>
+ <notes>-</notes>
+
+ <contents>
+
+   <dir name="/">
+
+     <file role="data" name="README" />
+     <file role="data" name="LICENSE" />
+
+     <dir name="config">
+       <file role="data" name="routing.yml" />
+     </dir>
+
+     <dir name="lib">
+
+       <dir name="geshi">
+
+           <dir name="contrib">
+             <file role="data" name="aliased.php" />
+             <file role="data" name="cssgen.php" />
+             <file role="data" name="cssgen2.php" />
+             <file role="data" name="example.php" />
+             <file role="data" name="langcheck.php" />
+           </dir>
+
+           <dir name="geshi">
+             <file role="data" name="robots.php" />
+             <file role="data" name="ruby.php" />
+             <file role="data" name="boo.php" />
+             <file role="data" name="lsl2.php" />
+             <file role="data" name="csharp.php" />
+             <file role="data" name="ocaml.php" />
+             <file role="data" name="avisynth.php" />
+             <file role="data" name="klonecpp.php" />
+             <file role="data" name="tcl.php" />
+             <file role="data" name="scilab.php" />
+             <file role="data" name="gnuplot.php" />
+             <file role="data" name="jquery.php" />
+             <file role="data" name="java.php" />
+             <file role="data" name="nsis.php" />
+             <file role="data" name="mysql.php" />
+             <file role="data" name="xpp.php" />
+             <file role="data" name="mxml.php" />
+             <file role="data" name="klonec.php" />
+             <file role="data" name="tsql.php" />
+             <file role="data" name="rebol.php" />
+             <file role="data" name="text.php" />
+             <file role="data" name="lotusformulas.php" />
+             <file role="data" name="dos.php" />
+             <file role="data" name="properties.php" />
+             <file role="data" name="mpasm.php" />
+             <file role="data" name="hq9plus.php" />
+             <file role="data" name="actionscript.php" />
+             <file role="data" name="ini.php" />
+             <file role="data" name="locobasic.php" />
+             <file role="data" name="python.php" />
+             <file role="data" name="idl.php" />
+             <file role="data" name="gml.php" />
+             <file role="data" name="per.php" />
+             <file role="data" name="bnf.php" />
+             <file role="data" name="c_mac.php" />
+             <file role="data" name="bibtex.php" />
+             <file role="data" name="vim.php" />
+             <file role="data" name="vbnet.php" />
+             <file role="data" name="pic16.php" />
+             <file role="data" name="whois.php" />
+             <file role="data" name="pascal.php" />
+             <file role="data" name="css.php" />
+             <file role="data" name="genero.php" />
+             <file role="data" name="make.php" />
+             <file role="data" name="cadlisp.php" />
+             <file role="data" name="delphi.php" />
+             <file role="data" name="xml.php" />
+             <file role="data" name="progress.php" />
+             <file role="data" name="ocaml-brief.php" />
+             <file role="data" name="scala.php" />
+             <file role="data" name="thinbasic.php" />
+             <file role="data" name="matlab.php" />
+             <file role="data" name="javascript.php" />
+             <file role="data" name="qbasic.php" />
+             <file role="data" name="whitespace.php" />
+             <file role="data" name="autoit.php" />
+             <file role="data" name="lotusscript.php" />
+             <file role="data" name="oberon2.php" />
+             <file role="data" name="visualprolog.php" />
+             <file role="data" name="div.php" />
+             <file role="data" name="erlang.php" />
+             <file role="data" name="kixtart.php" />
+             <file role="data" name="reg.php" />
+             <file role="data" name="oracle8.php" />
+             <file role="data" name="apache.php" />
+             <file role="data" name="modula3.php" />
+             <file role="data" name="powerbuilder.php" />
+             <file role="data" name="cobol.php" />
+             <file role="data" name="inno.php" />
+             <file role="data" name="prolog.php" />
+             <file role="data" name="purebasic.php" />
+             <file role="data" name="caddcl.php" />
+             <file role="data" name="cfdg.php" />
+             <file role="data" name="z80.php" />
+             <file role="data" name="glsl.php" />
+             <file role="data" name="lolcode.php" />
+             <file role="data" name="c.php" />
+             <file role="data" name="smarty.php" />
+             <file role="data" name="java5.php" />
+             <file role="data" name="objc.php" />
+             <file role="data" name="cfm.php" />
+             <file role="data" name="fo.php" />
+             <file role="data" name="html4strict.php" />
+             <file role="data" name="sql.php" />
+             <file role="data" name="latex.php" />
+             <file role="data" name="abap.php" />
+             <file role="data" name="fortran.php" />
+             <file role="data" name="ada.php" />
+             <file role="data" name="autohotkey.php" />
+             <file role="data" name="applescript.php" />
+             <file role="data" name="actionscript3.php" />
+             <file role="data" name="xorg_conf.php" />
+             <file role="data" name="4cs.php" />
+             <file role="data" name="awk.php" />
+             <file role="data" name="sas.php" />
+             <file role="data" name="php-brief.php" />
+             <file role="data" name="asp.php" />
+             <file role="data" name="basic4gl.php" />
+             <file role="data" name="lua.php" />
+             <file role="data" name="providex.php" />
+             <file role="data" name="cpp.php" />
+             <file role="data" name="d.php" />
+             <file role="data" name="lscript.php" />
+             <file role="data" name="diff.php" />
+             <file role="data" name="dot.php" />
+             <file role="data" name="lisp.php" />
+             <file role="data" name="asm.php" />
+             <file role="data" name="rsplus.php" />
+             <file role="data" name="email.php" />
+             <file role="data" name="intercal.php" />
+             <file role="data" name="freebasic.php" />
+             <file role="data" name="povray.php" />
+             <file role="data" name="scheme.php" />
+             <file role="data" name="plsql.php" />
+             <file role="data" name="teraterm.php" />
+             <file role="data" name="cpp-qt.php" />
+             <file role="data" name="smalltalk.php" />
+             <file role="data" name="php.php" />
+             <file role="data" name="sdlbasic.php" />
+             <file role="data" name="vhdl.php" />
+             <file role="data" name="verilog.php" />
+             <file role="data" name="m68k.php" />
+             <file role="data" name="gettext.php" />
+             <file role="data" name="eiffel.php" />
+             <file role="data" name="cmake.php" />
+             <file role="data" name="io.php" />
+             <file role="data" name="vb.php" />
+             <file role="data" name="oobas.php" />
+             <file role="data" name="bash.php" />
+             <file role="data" name="apt_sources.php" />
+             <file role="data" name="pixelbender.php" />
+             <file role="data" name="visualfoxpro.php" />
+             <file role="data" name="powershell.php" />
+             <file role="data" name="dcs.php" />
+             <file role="data" name="bf.php" />
+             <file role="data" name="haskell.php" />
+             <file role="data" name="typoscript.php" />
+             <file role="data" name="rails.php" />
+             <file role="data" name="groovy.php" />
+             <file role="data" name="cil.php" />
+             <file role="data" name="winbatch.php" />
+             <file role="data" name="gdb.php" />
+             <file role="data" name="mirc.php" />
+             <file role="data" name="perl.php" />
+             <file role="data" name="blitzbasic.php" />
+             <file role="data" name="oracle11.php" />
+           </dir>
+
+         <file role="data" name="geshi.php" />
+         <file role="data" name="LICENSE" />
+         <file role="data" name="README" />
+       </dir>
+
+       <file role="data" name="sfGeshi.class.php" />
+
+     </dir>
+
+     <dir name="modules">
+       <dir name="sfGeshiExample">
+         <dir name="actions">
+           <file role="data" name="actions.class.php" />
+         </dir>
+         <dir name="templates">
+           <file role="data" name="indexSuccess.php" />
+         </dir>
+       </dir>
+     </dir>
+
+   </dir>
+
+ </contents>
+
+ <dependencies>
+  <required>
+   <php>
+    <min>5.0.0</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.1</min>
+   </pearinstaller>
+   <package>
+    <name>symfony</name>
+    <channel>pear.symfony-project.com</channel>
+    <min>1.2.0</min>
+    <max>1.4.0</max>
+   </package>
+  </required>
+ </dependencies>
+
+ <phprelease>
+ </phprelease>
+
+ <changelog>
+
+  <release>
+    <version>
+      <release>1.0.0</release>
+      <api>1.2.0</api>
+    </version>
+    <stability>
+     <release>stable</release>
+     <api>stable</api>
+    </stability>
+    <license uri="http://www.gnu.org/licenses/lgpl.html">LGPL</license>
+    <date>2009-12-12</date>
+    <notes>
+      * initial import of sfGeshiPlugin
+    </notes>
+  </release>
+
+ </changelog>
+
+</package>

@@ -1,0 +1,24 @@
+sfDoctrineGraphvizPlugin
+========================
+
+Provides you with a task that output database MCD and MLD doctrine schema
+using the graphviz tool.
+
+Usage
+-----
+
+Simply type the following command:
+
+    $ ./symfony doctrine:graphviz
+
+Files are created in the directory _doc/graph/doctrine_. There are 4 files created:
+
+*   **mcd.schema.dot** : source of *"Modèle conceptuel des données"*
+*   **mcd.schema.png** : image of *"Modèle conceptuel des données"*
+*   **mld.schema.dot** : source of *"Modèle logique des données"*
+*   **mld.schema.png** : image of *"Modèle logique des données"*
+
+Notes
+-----
+
+You must have graphviz installed on your system.
