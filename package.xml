@@ -10,7 +10,7 @@
   <email>tomasz.ducin@gmail.com</email>
   <active>yes</active>
  </lead>
- <date>2009-12-12</date>
+ <date>2009-12-13</date>
  <time>11:00:00</time>
  <version>
    <release>1.0.1</release>
@@ -35,6 +35,10 @@
      </dir>
 
      <dir name="lib">
+
+       <dir name="custom">
+         <file role="data" name="php.php" />
+       </dir>
 
        <dir name="geshi">
 
@@ -253,7 +257,8 @@
     <license uri="http://www.gnu.org/licenses/lgpl.html">LGPL</license>
     <date>2009-12-13</date>
     <notes>
-      * added mixed code-text highlighting feature
+      * added mixed code-and-text blocks highlighting
+      * added language file overriding feature
       * changed sfGeshi class structure
       * documentation improved greatly
     </notes>
