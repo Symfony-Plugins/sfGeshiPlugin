@@ -169,3 +169,8 @@ GeSHi support for YAML
 GeSHi is still missing support for our precious YAML language. If you want
 GeSHi to support .yml files as soon as possible, join the quest form geshi-yml-support
 [here](http://sourceforge.net/tracker/index.php?func=detail&aid=1648006&group_id=114997&atid=670234) :)!
+
+TODO
+----
+
+ * Support for [advanced GeSHi features](http://qbnz.com/highlighter/geshi-doc.html#advanced-features).
