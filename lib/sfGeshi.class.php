@@ -22,7 +22,7 @@ class sfGeshi
    */
   static private function highlight($matches)
   {
-    return sfGeshi::parse_single($matches[3], $matches[2]);
+    return sfGeshi::parse_single($matches[2], $matches[1]);
   }
 
   /**
@@ -42,6 +42,20 @@ class sfGeshi
     {
       $geshi_object->set_language_path($alternative_directory);
     }
+    if (count(self::$methods) > 0)
+    {
+        foreach(self::$methods as $method => $arg)
+        {
+            if (is_null($arg))
+            {
+               $geshi_object->$method(); 
+            }
+            else
+            {
+                $geshi_object->$method($arg);
+            }
+        }
+    }
     return $geshi_object->parse_code();
   }
 
@@ -56,10 +70,39 @@ class sfGeshi
    */
   static public function parse_mixed($mixed)
   {
+    $regexp = "/\[([0-9a-zA-Z]*)\](.*?)\[\/\]/s";
+    
+    if (count(self::$ignore) > 0)
+    {
+        $regexp = "/\[([^(?:".implode('|', self::$ignore).")][0-9a-zA-Z]*)\](.*?)\[\/\]/s";
+    }
+    
     return preg_replace_callback(
-      "/(\[([0-9a-zA-Z]*)\]((.|\n)*?)\[\/])/",
+      $regexp,
       array("sfGeshi", "highlight"),
-      $mixed);
+      $mixed); 
+  }
+  /**
+   *Array of strings that to be ignored while parsing
+   *
+   */
+  static public $ignore = array();
+  
+  /**
+   *Array of methods for changing the behaviour of Geshi object
+   *
+   */
+  static public $methods = array();
+  
+  /**
+   *Method adds items to self::$methods array;
+   *
+   *@param String $method - method of GeSHi object
+   *@param String $arg - argument for this method, null means without argument
+   */  
+  static public function addMethod($method, $arg=null)
+  {
+    self::$methods[$method] = $arg; 
   }
 }
 
