@@ -42,20 +42,8 @@ class sfGeshi
     {
       $geshi_object->set_language_path($alternative_directory);
     }
-    if (count(self::$methods) > 0)
-    {
-        foreach(self::$methods as $method => $arg)
-        {
-            if (is_null($arg))
-            {
-               $geshi_object->$method(); 
-            }
-            else
-            {
-                $geshi_object->$method($arg);
-            }
-        }
-    }
+    self::callGeshiMethods($geshi_object);
+    
     return $geshi_object->parse_code();
   }
 
@@ -71,38 +59,68 @@ class sfGeshi
   static public function parse_mixed($mixed)
   {
     $regexp = "/\[([0-9a-zA-Z]*)\](.*?)\[\/\]/s";
-    
-    if (count(self::$ignore) > 0)
+
+    if (count($ignore = self::getIgnoreFromYaml()) > 0)
     {
-        $regexp = "/\[([^(?:".implode('|', self::$ignore).")][0-9a-zA-Z]*)\](.*?)\[\/\]/s";
+        $regexp = "/\[([^(?:".implode('|', $ignore).")][0-9a-zA-Z]*)\](.*?)\[\/\]/s";
     }
-    
+
     return preg_replace_callback(
       $regexp,
       array("sfGeshi", "highlight"),
-      $mixed); 
+      $mixed);
   }
+
   /**
-   *Array of strings that to be ignored while parsing
-   *
+   * Internal function used to get string that should be ignored.
+   * Strings are defined in app.yml file
+   * 
+   * @return Array $ignore - array of string to ignore while parsing
    */
-  static public $ignore = array();
-  
-  /**
-   *Array of methods for changing the behaviour of Geshi object
-   *
-   */
-  static public $methods = array();
-  
-  /**
-   *Method adds items to self::$methods array;
-   *
-   *@param String $method - method of GeSHi object
-   *@param String $arg - argument for this method, null means without argument
-   */  
-  static public function addMethod($method, $arg=null)
+  static private function getIgnoreFromYaml()
   {
-    self::$methods[$method] = $arg; 
+      $ignore = array();
+      if (sfConfig::has('app_geshi_ignore') && (count(sfConfig::get('app_geshi_ignore')) > 0))
+      {
+          foreach(sfConfig::get('app_geshi_ignore') as $val)
+          {
+              $ignore[] = $val;
+          }
+      }
+      return $ignore;
+  }
+
+  /**
+   * Internal function used to call GeSHi methods
+   * Methods and their arguments are defined in app.yml file
+   *
+   * @param GeSHi $geshi
+   */
+  static private function callGeshiMethods(GeSHi $geshi)
+  {
+    if (sfConfig::has('app_geshi_methods') && (count(sfConfig::get('app_geshi_methods')) > 0))
+    {
+        foreach(sfConfig::get('app_geshi_methods') as $method => $arg)
+        {
+            if (!method_exists($geshi, $method))
+            {
+                continue;
+            }
+
+            if (is_null($arg))
+            {
+                call_user_func(array($geshi, $method));
+            }
+            elseif (is_array($arg))
+            {
+                call_user_func_array(array($geshi, $method), $arg);
+            }
+            else
+            {
+                call_user_func(array($geshi, $method), $arg);
+            }
+        }
+    }
   }
 }
 
