@@ -84,6 +84,17 @@ The method works like this: the mixed text is treated as normal text until
 a piece of mixed block (beginning from the opening tag and finishing at the
 closing tag) is __replaced__ with its GeSHi syntax highlighting output.
 
+Notes on advanced plugin usage
+------------------------------
+
+The plugin is most useful for IT bloggers and tutorial websites. As
+__sfGeshi::parse_mixed__ needs some time to highlight big amounts of text,
+it's strongly advised to store highlighted version of mixed text in a
+separate column in the blog article table. This is because highlighting
+would be performed only once, the output would be stored in database and
+the result page would be rendered a lot faster (because GeSHi was already
+used).
+
 Plugin customization
 ====================
 
@@ -106,18 +117,7 @@ Plugin customization showed above will be converted into this structure:
     $geshi_object->enable_keyword_links(false);
     $geshi_object->set_keyword_group_style(3, 'color: white;', true);
     
-Words 'title' and 'rel' will be ignored by plugin parser.
-
-Notes on advanced plugin usage
-------------------------------
-
-The plugin is most useful for IT bloggers and tutorial websites. As
-__sfGeshi::parse_mixed__ needs some time to highlight big amounts of text,
-it's strongly advised to store highlighted version of mixed text in a
-separate column in the blog article table. This is because highlighting
-would be performed only once, the output would be stored in database and
-the result page would be rendered a lot faster (because GeSHi was already
-used).
+Plugin parser will ignore words 'title' and 'rel'.
 
 sfGeshiExample
 ==============
