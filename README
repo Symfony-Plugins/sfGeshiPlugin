@@ -84,6 +84,30 @@ The method works like this: the mixed text is treated as normal text until
 a piece of mixed block (beginning from the opening tag and finishing at the
 closing tag) is __replaced__ with its GeSHi syntax highlighting output.
 
+Plugin customization
+====================
+
+If you want to change default GeSHi behaviour, for example, you need to turn the
+use of classes on (off by default) you should use app.yml file.
+You can also define words in app.yml which you want to be ignored, for example, if you need to use jQuery attribute selectors ($('[title]')) in the text.
+
+    all:
+      geshi:
+        ignore:                     [title, rel]
+        methods:
+          enable_classes:           ~
+          enable_keyword_links:     false
+          set_keyword_group_style:  [3, 'color: white;', true]
+
+Plugin customization showed above will be converted into this structure:
+
+    [php]
+    $geshi_object->enable_classes();
+    $geshi_object->enable_keyword_links(false);
+    $geshi_object->set_keyword_group_style(3, 'color: white;', true);
+    
+Words 'title' and 'rel' will be ignored by plugin parser.
+
 Notes on advanced plugin usage
 ------------------------------
 
